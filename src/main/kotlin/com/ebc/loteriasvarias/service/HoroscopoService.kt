@@ -24,4 +24,35 @@ class HoroscopoService {
     fun obtenerHoroscopo(signo: Int): String {
         return predicciones[signo] ?: "Signo inválido. Debe estar entre 1 y 13."
     }
+
+    fun obtenerHoroscopoPorFechaNacimiento(dia: Int, mes: Int): String {
+        val signo = when {
+            (mes == 3 && dia >= 21) || (mes == 4 && dia <= 19) -> 1 // Aries
+            (mes == 4 && dia >= 20) || (mes == 5 && dia <= 20) -> 2 // Tauro
+            (mes == 5 && dia >= 21) || (mes == 6 && dia <= 20) -> 3 // Géminis
+            (mes == 6 && dia >= 21) || (mes == 7 && dia <= 22) -> 4 // Cáncer
+            (mes == 7 && dia >= 23) || (mes == 8 && dia <= 22) -> 5 // Leo
+            (mes == 8 && dia >= 23) || (mes == 9 && dia <= 22) -> 6 // Virgo
+            (mes == 9 && dia >= 23) || (mes == 10 && dia <= 22) -> 7 // Libra
+            (mes == 10 && dia >= 23) || (mes == 11 && dia <= 21) -> 8 // Escorpio
+            (mes == 11 && dia >= 22) || (mes == 12 && dia <= 21) -> 9 // Sagitario
+            (mes == 12 && dia >= 22) || (mes == 1 && dia <= 19) -> 10 // Capricornio
+            (mes == 1 && dia >= 20) || (mes == 2 && dia <= 18) -> 11 // Acuario
+            (mes == 2 && dia >= 19) || (mes == 3 && dia <= 20) -> 12 // Piscis
+            else -> null
+        }
+
+        //Calcular ofiuco
+        val ofiuco = (mes == 11 && dia >= 29) || (mes == 12 && dia <= 17)
+        if (ofiuco) {
+            return obtenerHoroscopo(13)
+        }
+
+
+        return if (signo != null) {
+            obtenerHoroscopo(signo)
+        } else {
+            "Fecha inválida."
+        }
+    }
 }

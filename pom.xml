@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.ebc</groupId>
 	<artifactId>loteriasvarias</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0-SNAPSHOT</version>
 	<name>Loterias Varias</name>
 	<description>Este proyecto contendrá algunos juegos de lotería básicos</description>
 	<url/>

@@ -14,4 +14,12 @@ class HoroscopoController (
     fun obtenerHoroscopo(@RequestParam signo: Int): String {
         return horoscopoService.obtenerHoroscopo(signo)
     }
+
+    @GetMapping("/fecha")
+    fun obtenerSignoPorFecha(
+        @RequestParam dia: Int,
+        @RequestParam mes: Int
+    ): String {
+        return horoscopoService.obtenerHoroscopoPorFechaNacimiento(dia, mes)
+    }
 }
